@@ -1,0 +1,26 @@
+# ninja log v5
+1562	42567	0	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/CMakeFiles/menuconfig	8e73bca4c18456a6
+1544	1562	1666943958633138576	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-done	f6d9203694897d21
+1544	1562	1666943958633138576	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-done	f6d9203694897d21
+1530	1543	1666943958614621582	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-install	7cc753df3fdefa87
+1530	1543	1666943958614621582	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-install	7cc753df3fdefa87
+77	1529	1666943958600355151	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/kconfig_bin/mconf-idf	71804d4685bc32fb
+77	1529	1666943958600355151	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-build	71804d4685bc32fb
+77	1529	1666943958600355151	kconfig_bin/mconf-idf	71804d4685bc32fb
+1562	42567	0	CMakeFiles/menuconfig	8e73bca4c18456a6
+1544	1562	1666943958633138576	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/CMakeFiles/mconf-idf-complete	f6d9203694897d21
+28	41	1666943957112056185	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-download	97d99375266bc3bf
+77	1529	1666943958600355151	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-build	71804d4685bc32fb
+66	77	1666943957148207261	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-configure	c03b6f66541cb102
+15	28	1666943957098850290	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-mkdir	a7d52f1b369e0a17
+41	54	1666943957124848165	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-update	6636ec9b59370bb6
+54	66	1666943957136762274	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-patch	1f44e6dde344bf68
+41	54	1666943957124848165	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-update	6636ec9b59370bb6
+66	77	1666943957148207261	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-configure	c03b6f66541cb102
+28	41	1666943957112056185	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-download	97d99375266bc3bf
+15	28	1666943957098850290	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-mkdir	a7d52f1b369e0a17
+1544	1562	1666943958633138576	CMakeFiles/mconf-idf-complete	f6d9203694897d21
+54	66	1666943957136762274	mconf-idf-prefix/src/mconf-idf-stamp/mconf-idf-patch	1f44e6dde344bf68
+15	1860	1666944002724901295	build.ninja	d5a13e03c6eae8fc
+13	6296	0	CMakeFiles/menuconfig	8e73bca4c18456a6
+13	6296	0	/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/CMakeFiles/menuconfig	8e73bca4c18456a6
