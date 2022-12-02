@@ -1,0 +1,21 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader/subproject",
+    "build_dir":          "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/build/bootloader",
+    "config_file":        "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.4.2-dirty",
+    "target":             "esp32",
+    "rev":                "0",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/efuse/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp32/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_common/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_hw_support/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_system/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/freertos/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/hal/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/log/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/newlib/Kconfig;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader/Kconfig.projbuild;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_rom/Kconfig.projbuild;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esptool_py/Kconfig.projbuild;/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "freertos", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader_support", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/efuse", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp32", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_common", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_hw_support", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_rom", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esp_system", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/esptool_py", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/freertos", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/hal", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/log", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader/subproject/main", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader/subproject/components/micro-ecc", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/newlib", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/partition_table", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/soc", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/spi_flash", "/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/xtensa", "" ]
+}

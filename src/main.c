@@ -13,9 +13,11 @@
 #include "algorithm.h"
 #include "i2c_api.h"
 
+#include "api_remake.h"
+
 #define tag "SSD1306"
 #define DEBUG 1
-#define DELAY_AMOSTRAGEM 40
+#define DELAY_SAMPLING 40
 
 
 SSD1306_t dev;
@@ -52,7 +54,7 @@ void write_to_display() {
     clean_lines();
 }
 
-void update_display(int bpm, float spo2, double pearson_correlation) {
+void update_display(int bpm, float spo2, double pearson_correlation, float temp) {
     ssd1306_clear_screen(&dev, false);
 
     for (int i = 0; i < LINE_COUNT; i++) {
@@ -62,12 +64,16 @@ void update_display(int bpm, float spo2, double pearson_correlation) {
     sprintf(lines[0], "BPM: %d", bpm);
     sprintf(lines[1], "SPO: %f", spo2);
     sprintf(lines[2], "PC: %f", pearson_correlation);
+    sprintf(lines[3], "temp: %f", temp);
 
     for (int i = 0; i < LINE_COUNT; i++) {
         ssd1306_display_text(&dev, i, lines[i], strlen(lines[i]), false);
     }
 }
-
+#define MAX30102_ADDRESS             0xAE
+#define MAX30102_FIFO_DATA_REG       0x07
+uint32_t HR;      // Last heart rate datapoint
+uint32_t SPO2;
 
 void init_display() {
     spi_master_init(&dev, CONFIG_MOSI_GPIO, CONFIG_SCLK_GPIO, CONFIG_CS_GPIO, CONFIG_DC_GPIO, CONFIG_RESET_GPIO);
@@ -77,27 +83,41 @@ void init_display() {
 }
 
 void app_main(void) {
-	init_display();
+	// init_display();
 
-    xTaskCreatePinnedToCore(sensor_data_reader, "Data", 10240, NULL, 2, &sensor_reader_handle, 1);
-    while(1){};
+    // xTaskCreatePinnedToCore(sensor_data_reader, "Data", 10240, NULL, 2, &sensor_reader_handle, 1);
+    while (1) {
+		char data_read[6] = {0}; 
+		HR = 0;
+		SPO2 = 0;
+		i2c_read(MAX30102_ADDRESS, MAX30102_FIFO_DATA_REG, data_read, 6);
+		printf("%s", data_read);
+		i2c_
+	}
+    // i2c_remake_sensor_init();
+    // vTaskDelay(pdMS_TO_TICKS(100));
+    // max30102_init(&max30102_configuration);
+    // i2c_remake_sensor_read();
+    // while(1){
+    //     i2c_remake_sensor_read();
+    // };
     
-    ssd1306_display_text_x3(&dev, 0, "Hello", 5, false);
-    vTaskDelay(3000 / portTICK_PERIOD_MS);
+    // ssd1306_display_text_x3(&dev, 0, "Hello", 5, false);
+    // vTaskDelay(3000 / portTICK_PERIOD_MS);
 
 
 	
-	ssd1306_display_text(&dev, 0, "SSD1306 128x64", 14, false);
-	ssd1306_display_text(&dev, 1, "ABCDEFGHIJKLMNOP", 16, false);
-	ssd1306_display_text(&dev, 2, "abcdefghijklmnop",16, false);
-	ssd1306_display_text(&dev, 3, "Hello World!!", 13, false);
-	ssd1306_display_text(&dev, 4, "SSD1306 128x64", 14, true);
-	ssd1306_display_text(&dev, 5, "ABCDEFGHIJKLMNOP", 16, true);
-	ssd1306_display_text(&dev, 6, "abcdefghijklmnop",16, true);
-	ssd1306_display_text(&dev, 7, "Hello World!!", 13, true);
+	// ssd1306_display_text(&dev, 0, "SSD1306 128x64", 14, false);
+	// ssd1306_display_text(&dev, 1, "ABCDEFGHIJKLMNOP", 16, false);
+	// ssd1306_display_text(&dev, 2, "abcdefghijklmnop",16, false);
+	// ssd1306_display_text(&dev, 3, "Hello World!!", 13, false);
+	// ssd1306_display_text(&dev, 4, "SSD1306 128x64", 14, true);
+	// ssd1306_display_text(&dev, 5, "ABCDEFGHIJKLMNOP", 16, true);
+	// ssd1306_display_text(&dev, 6, "abcdefghijklmnop",16, true);
+	// ssd1306_display_text(&dev, 7, "Hello World!!", 13, true);
 
 
-	vTaskDelay(3000 / portTICK_PERIOD_MS);
+	// vTaskDelay(3000 / portTICK_PERIOD_MS);
 
 	// Restart module
 	esp_restart();
@@ -132,13 +152,12 @@ void sensor_data_reader(void *pvParameters) {
 
 		//if(pearson_correlation >= 0.7){
 		double spo2 = spo2_measurement(ir_data_buffer, red_data_buffer, ir_mean, red_mean);
-        update_display(heart_rate, spo2, pearson_correlation);
+        update_display(heart_rate, spo2, pearson_correlation, temperature);
 		//	printf("SPO2 %f\n", spo2);
 
 	    //    size = asprintf(&data, "{\"mac\": \"%02x%02x%02x%02x%02x%02x\", \"spo2\":%f, \"heart_rate\":%d}",MAC2STR(sta_mac), spo2, heart_rate);
 			// mqtt_publish(data, size);
 		//}
-		printf("\n");
 
 // #if DEBUG
 // 		for(int i = 0; i < BUFFER_SIZE; i++){
@@ -153,8 +172,7 @@ void sensor_data_reader(void *pvParameters) {
 }
 
 
-void fill_buffers_data()
-{
+void fill_buffers_data() {
 	for(int i = 0; i < BUFFER_SIZE; i++){
 		read_max30102_fifo(&red_data, &ir_data);
 		ir_data_buffer[i] = ir_data;
@@ -162,6 +180,6 @@ void fill_buffers_data()
 		//printf("%d\n", red_data);
 		ir_data = 0;
 		red_data = 0;
-		vTaskDelay(pdMS_TO_TICKS(DELAY_AMOSTRAGEM));
+		vTaskDelay(pdMS_TO_TICKS(DELAY_SAMPLING));
 	}
 }

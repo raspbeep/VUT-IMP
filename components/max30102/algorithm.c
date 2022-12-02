@@ -13,7 +13,7 @@ void init_time_array()
 	double time = 0;
 	for(int i = 0; i < BUFFER_SIZE; i++){
 		time_array[i] = time;
-		time += DELAY_AMOSTRAGEM / 1000.0;
+		time += DELAY_SAMPLING / 1000.0;
 	}
 }
 
@@ -51,7 +51,7 @@ void remove_trend_line(int32_t *buffer)
 	double time = 0;
 	for(int i = 0; i < BUFFER_SIZE; i++){
 		buffer [i] = ((buffer[i] + (-a * time)) - b);
-		time += DELAY_AMOSTRAGEM / 1000.0;
+		time += DELAY_SAMPLING / 1000.0;
 	}
 }
 
@@ -157,7 +157,7 @@ int calculate_heart_rate(int32_t *ir_data, double *r0, double *auto_correlationa
 					continue;
 				}
 
-				resultado = ((1 / (biggest_value_index * (DELAY_AMOSTRAGEM / 1000.0))) * 60);
+				resultado = ((1 / (biggest_value_index * (DELAY_SAMPLING / 1000.0))) * 60);
 #if !DEBUG
 				return((int)resultado); //Não retorna daqui seestiver debugando.
 #endif
@@ -196,7 +196,7 @@ double sum_of_xy_elements(int32_t *data)
 	double time = 0;
 	for(int i = 0; i < BUFFER_SIZE; i++){
 		sum_xy += (data[i] * time);
-		time += DELAY_AMOSTRAGEM / 1000.0;
+		time += DELAY_SAMPLING / 1000.0;
 	}
 	return sum_xy;
 }
@@ -208,7 +208,7 @@ double sum_of_squared_elements(int32_t *data)
 	int time = 0;
 	for(int i = 0; i < BUFFER_SIZE; i++){
 		sum_squared += (data[i] * data[i]);
-		time += DELAY_AMOSTRAGEM / 1000.0;
+		time += DELAY_SAMPLING / 1000.0;
 	}
 	return sum_squared;
 }
@@ -216,7 +216,7 @@ double sum_of_squared_elements(int32_t *data)
 
 double somatoria_x2()
 {
-	float incremento = (DELAY_AMOSTRAGEM / 1000.0);
+	float incremento = (DELAY_SAMPLING / 1000.0);
 	double resultado = 0.0;
 	double squared_values = 0;
 	float temp = 0;

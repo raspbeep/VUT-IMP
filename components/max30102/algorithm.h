@@ -14,7 +14,6 @@ double calculate_pearson_r(int32_t *data_red, int32_t *data_ir);
 void remove_trend_line(int32_t *buffer);
 
 
-//Para calcular a regressão linear.
 double sum_of_xy_elements(int32_t *data);
 int64_t sum_of_elements(int32_t *data);
 double sum_of_squared_elements(int32_t *data);
@@ -26,7 +25,7 @@ double rms_value(int32_t *data);
 double auto_correlation_function(int32_t *data, int32_t lag);
 
 #define BUFFER_SIZE 128
-#define DELAY_AMOSTRAGEM 40
+#define DELAY_SAMPLING 40
 
 
 #endif

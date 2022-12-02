@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=/Users/pakratoc/esp/esp-idf/components/bootloader/subproject
+source_dir=/Users/pakratoc/Documents/PlatformIO/Projects/esp32/esp-idf/components/bootloader/subproject
 work_dir=
 
